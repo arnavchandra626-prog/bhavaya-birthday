@@ -81,18 +81,6 @@
       background: #ff2d63;
     }
 
-    /* GALLERY */
-    .gallery img {
-      width: 250px;
-      border-radius: 16px;
-      margin: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform .3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.07);
-    }
-
     /* FLOATING HEARTS */
     .heart {
       position: fixed;
@@ -129,13 +117,13 @@
       May your birthday be as bright, lovely, and magical as you are. You bring joy and light wherever you go, and today is all about celebrating YOU! ✨💗<br /><br />
       Wishing you endless happiness, success, and beautiful moments ahead. 🎀🌟
     </p>
-    <button> class="btn" id="wishBtn">Fireworks !!</button>
+    <button class="btn" id="fireworksBtn">🎆 Fireworks!! 🎆</button>
   </div>
 
   <!-- CONFETTI & FIREWORKS -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Launch small confetti on page load
+    // Small confetti on page load
     function launchConfetti() {
       const duration = 3000;
       const end = Date.now() + duration;
@@ -146,7 +134,7 @@
     }
     window.onload = launchConfetti;
 
-    // Fireworks function
+    // Fireworks bursts on button click
     function launchFireworks() {
       const duration = 2000;
       const animationEnd = Date.now() + duration;
@@ -154,11 +142,9 @@
 
       const interval = setInterval(function() {
         const timeLeft = animationEnd - Date.now();
-
         if (timeLeft <= 0) return clearInterval(interval);
 
         const particleCount = 50 * (timeLeft / duration);
-        // Firework burst
         confetti(Object.assign({}, defaults, {
           particleCount,
           origin: { x: Math.random(), y: Math.random() * 0.5 }
@@ -166,7 +152,7 @@
       }, 250);
     }
 
-    document.getElementById('wishBtn').addEventListener('click', launchFireworks);
+    document.getElementById('fireworksBtn').addEventListener('click', launchFireworks);
   </script>
 
   <!-- SCROLL REVEAL -->
